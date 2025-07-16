@@ -1,5 +1,5 @@
 
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 
 const gifUrls = [
   "https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExcWI1dGxwemNtYnN5bnl1emxud2l1a3R2dXpkdmRxa3IxcGVpd3hlZiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/cB5Qmn71awbrPy20bm/giphy.gif",
