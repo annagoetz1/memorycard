@@ -22,10 +22,11 @@ function shuffle(array) {
 
 export default function FavoriteGifs() {
   const [counter, setCounter] = useState(0);
+  const [shuffledGifs, setShuffledGifs] = useState(shuffle(gifUrls));
 
   function handleClick () {
 setCounter(counter + 1);
-console.log(counter);
+setShuffledGifs(shuffle(shuffledGifs));
   }
   return (
     <>
