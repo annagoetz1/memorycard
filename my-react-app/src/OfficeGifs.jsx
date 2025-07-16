@@ -25,10 +25,17 @@ export default function FavoriteGifs() {
   const [shuffledGifs, setShuffledGifs] = useState(shuffle(gifUrls));
   const [clickedGifs, setClickedGifs] = useState([]);
 
-  function handleClick () {
-setCounter(counter + 1);
-setShuffledGifs(shuffle(shuffledGifs));
+  function handleClick (index) {
+    if (clickedGifs.includes(index)) {
+      setCounter(0);
+    setClickedGifs([]);
+ } else {
+  setCounter(counter + 1);
+  setClickedGifs([...clickedGifs, index]);
+  setShuffledGifs(shuffle(shuffledGifs));
+
   }
+
   return (
     <>
     <p>Score: {counter}</p>
