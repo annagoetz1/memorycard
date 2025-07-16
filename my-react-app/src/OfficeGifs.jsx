@@ -25,15 +25,15 @@ export default function FavoriteGifs() {
   const [shuffledGifs, setShuffledGifs] = useState(shuffle(gifUrls));
   const [clickedGifs, setClickedGifs] = useState([]);
 
-  function handleClick (index) {
-    if (clickedGifs.includes(index)) {
+  function handleClick (url) {
+    if (clickedGifs.includes(url)) {
       setCounter(0);
     setClickedGifs([]);
  } else {
   setCounter(counter + 1);
-  setClickedGifs([...clickedGifs, index]);
+  setClickedGifs([...clickedGifs, url]);
   setShuffledGifs(shuffle(shuffledGifs));
-
+ }
   }
 
   return (
@@ -45,11 +45,12 @@ export default function FavoriteGifs() {
           src={url}
           alt={`favorite gif ${i + 1}`}
           style={{ maxWidth: "300px", height: "auto", margin: "8px", cursor: 'pointer', boxShadow: "0 4px 8px rgba(0, 0, 0, 0.3)"}}
-          onClick={handleClick}
+          onClick={handleClick(url)}
           
         />
         
       ))}
     </>
   );
-}
+
+  }
