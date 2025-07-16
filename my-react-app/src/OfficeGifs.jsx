@@ -16,22 +16,29 @@ const gifUrls = [
   "https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExMnBvMnU4c254bGFydGdoeTR6YTJwYW1mc3oxZTg5bm5lcjkxbTMzZiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/zz2a5ctsXTzkidQVSM/giphy.gif"
 ];
 
+function shuffle(array) {
+  return [...array].sort(() => Math.random() - 0.5);
+}
 
 export default function FavoriteGifs() {
   const [counter, setCounter] = useState(0);
 
   function handleClick () {
 setCounter(counter + 1);
+console.log(counter);
   }
   return (
     <>
+    <p>Score: {counter}</p>
       {gifUrls.map((url, i) => (
         <img
           key={i}
           src={url}
           alt={`favorite gif ${i + 1}`}
           style={{ maxWidth: "300px", height: "auto", margin: "8px", boxShadow: "0 4px 8px rgba(0, 0, 0, 0.3)"}}
+          onClick={handleClick}
         />
+        
       ))}
     </>
   );
