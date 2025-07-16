@@ -23,6 +23,7 @@ function shuffle(array) {
 export default function FavoriteGifs() {
   const [counter, setCounter] = useState(0);
   const [shuffledGifs, setShuffledGifs] = useState(shuffle(gifUrls));
+  const [clickedGifs, setClickedGifs] = useState([]);
 
   function handleClick () {
 setCounter(counter + 1);
@@ -31,13 +32,14 @@ setShuffledGifs(shuffle(shuffledGifs));
   return (
     <>
     <p>Score: {counter}</p>
-      {gifUrls.map((url, i) => (
+      {shuffledGifs.map((url, i) => (
         <img
           key={i}
           src={url}
           alt={`favorite gif ${i + 1}`}
-          style={{ maxWidth: "300px", height: "auto", margin: "8px", boxShadow: "0 4px 8px rgba(0, 0, 0, 0.3)"}}
+          style={{ maxWidth: "300px", height: "auto", margin: "8px", cursor: 'pointer', boxShadow: "0 4px 8px rgba(0, 0, 0, 0.3)"}}
           onClick={handleClick}
+          
         />
         
       ))}
